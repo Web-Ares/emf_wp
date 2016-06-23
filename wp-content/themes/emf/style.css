@@ -1,0 +1,19 @@
+/*
+Theme Name: EMF
+Author: Websters
+Version: 1.0
+*/
+.wpcf7-response-output{
+    display: none !important;
+}
+.site__field_width1 br{
+    display: none !important;
+}
+span.wpcf7-not-valid-tip {
+    color: #f00;
+    font-size: 1em;
+    display: none !important;
+}
+.wpcf7-not-valid {
+    border: 1px solid red !important;
+}
