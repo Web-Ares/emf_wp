@@ -9,7 +9,7 @@ get_header(); ?>
     <h1 class="site__title">contact</h1>
 
     <!-- site__content__wrap -->
-    <div class="site__content__wrap contact">
+    <div class="site__content__wrap">
 
         <!-- site__content__aside -->
         <aside class="site__content__aside">

@@ -92,10 +92,35 @@ function add_js()
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
         wp_enqueue_script('main');
 
+    }
+    if (is_page_template('page-awards.php')){
+        wp_enqueue_style('swiper', get_template_directory_uri().'/dist/css/swiper.min.css');
+        wp_enqueue_style('awards', get_template_directory_uri().'/dist/css/awards.css');
 
+        wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
+        wp_enqueue_script('swiper');
+
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
+    if (is_page_template('page-resources.php')){
+
+        wp_enqueue_style('resources', get_template_directory_uri().'/dist/css/resources-page.css');
+
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
 
     }
 
+    if (is_singular('resource')){
+
+        wp_enqueue_style('resources', get_template_directory_uri().'/dist/css/resources-page.css');
+
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
 }
 wp_enqueue_style('style', get_template_directory_uri().'/style.css');
 
@@ -103,4 +128,8 @@ wp_enqueue_style('style', get_template_directory_uri().'/style.css');
 if ( function_exists( 'add_theme_support' ) ) add_theme_support( 'post-thumbnails' );
 register_nav_menus( array(
     'menu' => 'menu'
-) );  ?>
+) );
+
+
+
+?>
