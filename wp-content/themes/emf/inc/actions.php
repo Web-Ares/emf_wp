@@ -112,11 +112,20 @@ function add_js()
         wp_enqueue_script('main');
 
     }
+    if (is_page_template('page-about.php')){
+        wp_enqueue_style('swiper', get_template_directory_uri().'/dist/css/swiper.min.css');
+        wp_enqueue_style('about_page', get_template_directory_uri().'/dist/css/about-page.css');
+        wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
+        wp_enqueue_script('swiper');
+        wp_register_script('tabs',get_template_directory_uri().'/dist/js/tabs.min.js');
+        wp_enqueue_script('tabs');
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+    }
 
     if (is_singular('resource')){
 
         wp_enqueue_style('resources', get_template_directory_uri().'/dist/css/resources-page.css');
-
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
         wp_enqueue_script('main');
 

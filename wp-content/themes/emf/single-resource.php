@@ -10,16 +10,21 @@
 
         <!-- site__content__aside -->
         <aside class="site__content__aside">
-
+            <?php    $thumb_id = get_post_thumbnail_id();
+            $thumb_url = wp_get_attachment_image_src($thumb_id,'full')[0];
+            ?>
             <!-- resources__info -->
-            <div class="resources__info">
+            <div class="resources__info" style="background-image: url(<?php echo $thumb_url; ?>); ">
 
                 <!-- resources__date -->
                 <time datetime="2016-06-23" class="resources__date">
-
-                    <span class="resources__date-day">23</span>
-                    <span class="resources__date-month">Jun</span>
-                    <span>2016</span>
+                    <?php   $date_d = get_the_date('j');
+                    $date_m = get_the_date('M');
+                    $date_y = get_the_date('Y');
+               ?>
+                    <span class="resources__date-day"><?php echo $date_d; ?></span>
+                    <span class="resources__date-month"><?php echo $date_m; ?></span>
+                    <span><?php echo $date_y; ?></span>
 
                 </time>
                 <!-- /resources__date -->
@@ -45,8 +50,7 @@
         <!-- site__content__inner -->
         <div class="site__content__inner nice-scroll">
 
-            <h2 class="site__title site__title_2">6 Tips to Prevent Electric
-                Shock</h2>
+            <h2 class="site__title site__title_2"><?php the_title(); ?></h2>
 
             <div class="content">
                 <?php the_content(); ?>

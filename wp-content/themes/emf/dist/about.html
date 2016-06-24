@@ -9,6 +9,7 @@
 
     <title>Title</title>
 
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/about-page.css">
 
 </head>
@@ -192,10 +193,10 @@
                                 <div class="tabs__content">
 
                                     <!-- about-portfolio -->
-                                    <div class="about-portfolio">
+                                    <div class="about-portfolio" data-action="php/about-portfolio.php">
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="1">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -216,7 +217,7 @@
                                         <!-- /about-portfolio__item -->
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="2">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -237,7 +238,7 @@
                                         <!-- /about-portfolio__item -->
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="3">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -258,7 +259,7 @@
                                         <!-- /about-portfolio__item -->
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="4">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -279,7 +280,7 @@
                                         <!-- /about-portfolio__item -->
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="5">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -300,7 +301,7 @@
                                         <!-- /about-portfolio__item -->
 
                                         <!-- about-portfolio__item -->
-                                        <div class="about-portfolio__item">
+                                        <div class="about-portfolio__item" data-id="6">
 
                                             <!-- about-portfolio__pic -->
                                             <div class="about-portfolio__pic">
@@ -396,7 +397,6 @@
 
                                 </div>
                             </dd>
-
                         </dl>
                     </div>
                     <!-- /tabs -->
@@ -540,6 +540,386 @@
         </div>
         <!-- /site__content -->
 
+        <!-- gallery-popup -->
+        <div class="gallery-popup">
+
+            <!-- gallery-popup__close -->
+            <a href="#" class="gallery-popup__close"></a>
+            <!-- /gallery-popup__close -->
+
+            <!-- gallery-popup__preloader -->
+            <div class="gallery-popup__preloader"></div>
+            <!-- /gallery-popup__preloader -->
+
+            <!-- gallery-popup__wrap -->
+            <div class="gallery-popup__wrap">
+
+                <!-- gallery -->
+                <div class="gallery">
+
+                    <!-- swiper-container -->
+                    <div class="swiper-container gallery__top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+                            <div class="swiper-slide">
+
+                                <!-- gallery__left -->
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
+                                </div>
+                                <!-- /gallery__left -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /swiper-container -->
+
+                    <!-- gallery__thumbs -->
+                    <div class="gallery__thumbs">
+                        <div class="swiper-container">
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide swiper-slide-active is-selected" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
+
+                                    <!-- gallery__thumbs-info -->
+                                    <div class="gallery__thumbs-info">
+
+                                        <!-- gallery__thumbs-current-num -->
+                                <span class="gallery__thumbs-current-num">
+                                    02
+                                </span>
+                                        <!-- /gallery__thumbs-current-num -->
+
+                                        <!-- gallery__thumbs-total-count -->
+                                <span class="gallery__thumbs-total-count">
+                                    04
+                                </span>
+                                        <!-- /gallery__thumbs-total-count -->
+
+                                    </div>
+                                    <!-- /gallery__thumbs-info -->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+
+                    </div>
+                    <!-- /gallery__thumbs -->
+
+                </div>
+                <!-- /gallery -->
+
+                <!--gallery-popup__text -->
+                <div class="gallery-popup__text">
+
+                    <h2>1570 Asbury Ave,
+                        Winnetka, IL</h2>
+
+                    <p>
+                        Magnificent Nantucket style home~approx 8400 sq ft of finished space. Stone & shingle exterior with copper downspouts situated on a . 5 acre lot in a desirable location.
+                    </p>
+                    <p>
+                        Sprawling floor plan, high ceilings, over sized moldings, custom millwork/woodwork, dramatic 2-story foyer with 20 ft. ceilings, a kitchen straight our of Architectural Digest,
+                        front and rear porches. 6 bedrooms, 6.2 baths, luxurious master suite with spa-like bath and 5 wood burning fireplaces with gas starters.
+                    </p>
+                    <p>
+                        Expansive Lower Level includes media room, exercise room, refrigerated custom wine cellar/bar and 6th bedroom/bathroom. Incredible attention to detail.
+                    </p>
+                    <p>
+                        Magnificent Nantucket style home~approx 8400 sq ft of finished space. Stone & shingle exterior with copper downspouts situated on a . 5 acre lot in a desirable location.
+                    </p>
+                    <p>
+                        Sprawling floor plan, high ceilings, over sized moldings, custom millwork/woodwork, dramatic 2-story foyer with 20 ft. ceilings, a kitchen straight our of Architectural Digest,
+                        front and rear porches. 6 bedrooms, 6.2 baths, luxurious master suite with spa-like bath and 5 wood burning fireplaces with gas starters.
+                    </p>
+                    <p>
+                        Expansive Lower Level includes media room, exercise room, refrigerated custom wine cellar/bar and 6th bedroom/bathroom. Incredible attention to detail.
+                    </p>
+
+                </div>
+                <!-- /gallery-popup__text -->
+
+            </div>
+            <!-- /gallery-popup__wrap -->
+
+        </div>
+        <!-- /gallery-popup -->
+
         <!-- site__header -->
         <footer class="site__footer ">
             <p class="site__footer__copyright">&copy; 2016 EMF Power Co. All Rights Reserved.</p>
@@ -551,7 +931,8 @@
 
     <script src="js/vendors/jquery-2.2.1.min.js"></script>
     <script src="js/vendors/jquery.nicescroll.min.js"></script>
-    <script src="js/tabs.min.js"></script>
+    <script src="js/vendors/swiper.min.js"></script>
     <script src="js/main.min.js"></script>
+    <script src="js/tabs.min.js"></script>
 </body>
 </html>
