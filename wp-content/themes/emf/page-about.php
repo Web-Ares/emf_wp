@@ -109,7 +109,7 @@ get_header(); ?>
                         <div class="tabs__content">
 
                             <!-- about-portfolio -->
-                            <div class="about-portfolio" data-action="<?php echo DIRECT;?>php/about-portfolio.php">
+                            <div class="about-portfolio" data-action="<?php echo admin_url( 'admin-ajax.php' );?>">
 
                                 <?php
                                 $tmp = $post;

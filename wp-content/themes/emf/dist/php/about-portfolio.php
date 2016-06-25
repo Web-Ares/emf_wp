@@ -13,7 +13,7 @@ $json_data = '{
 
                                 <!-- gallery__left -->
                                 <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(http://emf/wp-content/themes/emf/dist/pic/about-gall-pic1.jpg)\"></div>
+                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
