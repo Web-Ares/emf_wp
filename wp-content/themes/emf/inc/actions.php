@@ -130,6 +130,16 @@ function add_js()
         wp_enqueue_script('main');
 
     }
+    if (is_page_template('page-services.php') || is_singular('services')){
+        wp_enqueue_style('swiper', get_template_directory_uri().'/dist/css/swiper.min.css');
+        wp_enqueue_style('services-page', get_template_directory_uri().'/dist/css/services-page.css');
+        wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
+        wp_enqueue_script('swiper');
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
+
 }
 wp_enqueue_style('style', get_template_directory_uri().'/style.css');
 
@@ -144,9 +154,10 @@ function get_post_gallery_about(){
     $json_data='';
 
 
-    $post_id = $_GET['popupId'];
+    $post_id = $_GET['id'];
 
     $content = '';
+    
     $content = apply_filters('the_content', get_post_field('post_content', $post_id));
     if($content=='') {
         $content = '<h2>The author has not yet added description for this album</h2>';
@@ -262,5 +273,196 @@ endif;
 add_action('wp_ajax_get_gallery','get_post_gallery_about');
 
 add_action('wp_ajax_nopriv_get_gallery', 'get_post_gallery_about');
+
+
+function get_areas(){
+
+global $post;
+
+$id_area = $_GET['id'];
+$id_lvl = $_GET['lvl'];
+
+
+
+
+
+if($id_lvl==1){
+    $arg = array(
+        'post_type' =>'areas',
+        'posts_per_page'=>-1,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'areas_cat',
+                'field' => 'ID',
+                'terms' => $id_area
+            )
+        )
+    ) ;
+
+    $posts = get_posts( $arg);
+
+    $cur_lvl_1='';
+    foreach ($posts as $post){
+        $post_id = $post->ID;
+        $code = get_field('number_area_code_field',$post_id);
+        $cur_lvl_1 .='  <!-- popup-areas__address -->
+                                <a class=\"popup-areas__address ajax-block__btn\"  data-lvl=\"2\" data-id=\"'.$post_id.'\" href=\"#\">
+
+                                    <span>'.get_the_title($post_id).'</span>
+                                    '.$code.'
+
+                                </a>
+                                <!-- /popup-areas__address -->';
+
+    }
+
+    $json_data = '{
+                "html": "
+                <!-- popup-areas -->
+                            <div class=\"popup-areas ajax-block\" data-block=\"description\">
+
+                              '.$cur_lvl_1.'
+
+                               
+                            </div>
+                            <!-- /popup-areas -->
+                "
+}';
+
+
+
+
+
+}
+
+else {
+    $arg = array(
+        'post_type' =>'areas',
+        'posts_per_page'=>-1,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'areas_cat',
+                'field' => 'ID',
+                'terms' => $id_area
+            )
+        )
+    ) ;
+
+    $posts = get_posts( $arg);
+
+    $cur_lvl_1='';
+    foreach ($posts as $post){
+        $post_id = $post->ID;
+
+
+            if( have_rows('service_content_block') ):
+
+
+                while ( have_rows('service_content_block') ) : the_row();
+
+                    $cur_type=get_sub_field('choose_the_type_of_content',$post_id);
+
+                    if($cur_type=='text'):
+
+
+                        $cur_lvl_1 .='<div class="content">'.
+
+                             get_sub_field('add_a_text_block',$post_id).'
+
+                        </div> ';
+
+
+                     else:
+
+
+                        if( have_rows('add_a_drop_down_list') ):
+
+                            $cur_lvl_1.='<!-- accordion -->
+                            <div class="accordion accordion_2">
+                                <dl>';
+                                     while ( have_rows('add_a_drop_down_list') ) : the_row();
+
+                                        $cur_lvl_1.='<dt>'.get_sub_field('add_a_title_of_item',$post_id).'</dt>
+                                        <dd>
+
+                                            <!--accordion__content -->
+                                            <div class="accordion__content">
+
+                                                '.get_sub_field('add_a_content_of_item',$post_id).'
+
+                                            </div>
+                                            <!--/accordion__content -->
+
+                                        </dd>';
+
+                                    endwhile;
+                            $cur_lvl_1.='</dl>
+                            </div>
+                            <!-- /accordion -->';
+
+                        endif;
+
+                        ?>
+
+                    <?php  endif;?>
+
+
+
+                <?php endwhile;
+
+            else :
+
+                // no rows found
+
+            endif;
+
+
+
+
+    }
+
+
+    $json_data = '{
+                "html": "
+                 <!-- popup-detail -->
+                            <div class=\"popup-detail\">
+
+                                <h2 class=\"site__title site__title_6\">'.$post_id.'</h2>
+
+                                '.$cur_lvl_1.'
+
+                            </div>
+                            <!-- /popup-detail -->
+                "
+}';
+
+
+
+
+
+}
+
+
+
+
+$json_data = str_replace("\r\n",'',$json_data);
+$json_data = str_replace("\n",'',$json_data);
+
+echo $json_data;
+exit;
+
+
+}
+
+
+add_action('wp_ajax_get_areas','get_areas');
+
+add_action('wp_ajax_nopriv_get_areas', 'get_areas');
 
 ?>

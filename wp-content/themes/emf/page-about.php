@@ -61,44 +61,46 @@ get_header(); ?>
 
                             <div class="content">
 
-                                <p>We are a premier electrical services company offering 24/7 support to residential,
-                                    commercial and industrial clients throughout Greater Chicagoland. Since opening our
-                                    doors nearly 15 years ago, we’ve never stopped striving to provide the innovative, timely
-                                    and cost-effective solutions our clients have come to expect.</p>
-                                <p>Call EMF Power any time — day or night — in case of emergency. We’ll send a courteous,
-                                    expert electrician to your home or business at a moment’s notice. You may also fill out the
-                                    free quote form above for your no-obligation estimate and consultation today!</p>
+                                <?php
 
-                                <!-- about-sponsors -->
-                                <div class="about-sponsors">
+                                // check if the repeater field has rows of data
+                                if( have_rows('content_block') ):
 
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor1.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor2.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor2.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor2.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor3.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor4.png"  alt="">
-                                    <img src="<?php echo DIRECT; ?>pic/sponsor5.png"  alt="">
+                                    // loop through the rows of data
+                                    while ( have_rows('content_block') ) : the_row();
+
+                                        if(get_sub_field('choose_the_type_of_block')=='text'){
+
+                                            the_sub_field('why_choose_us_field');
+
+                                        } else {
+
+                                            if( have_rows('add_a_sponsors_logo') ): ?>
+                                                <!-- about-sponsors -->
+                                                <div class="about-sponsors">
+                                               <?php // loop through the rows of data
+                                                while ( have_rows('add_a_sponsors_logo') ) : the_row(); ?>
+
+                                                    <img src="<?php the_sub_field('add_a_new_logo'); ?>"  alt="Sponsor's Logo">
+
+                                               <?php endwhile;
+
+                                               ?>     </div>
+                                                <!-- /about-sponsors -->
+                                                <?php
+                                            endif; ?>
+
+                                        <?php } ?>
 
 
-                                </div>
-                                <!-- /about-sponsors -->
+                                        <?php endwhile;
+
+                                else :
 
 
-                                <p>We are a premier electrical services company offering 24/7 support to residential,
-                                    commercial and industrial clients throughout Greater Chicagoland. Since opening our
-                                    doors nearly 15 years ago, we’ve never stopped striving to provide the innovative, timely
-                                    and cost-effective solutions our clients have come to expect.</p>
-                                <p>Call EMF Power any time — day or night — in case of emergency. We’ll send a courteous,
-                                    expert electrician to your home or business at a moment’s notice. You may also fill out the
-                                    free quote form above for your no-obligation estimate and consultation today!</p>
-                                <p>We are a premier electrical services company offering 24/7 support to residential,
-                                    commercial and industrial clients throughout Greater Chicagoland. Since opening our
-                                    doors nearly 15 years ago, we’ve never stopped striving to provide the innovative, timely
-                                    and cost-effective solutions our clients have come to expect.</p>
-                                <p>Call EMF Power any time — day or night — in case of emergency. We’ll send a courteous,
-                                    expert electrician to your home or business at a moment’s notice. You may also fill out the
-                                    free quote form above for your no-obligation estimate and consultation today!</p>
+                                endif;
+
+                                ?>
 
                             </div>
 
