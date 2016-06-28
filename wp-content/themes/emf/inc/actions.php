@@ -339,93 +339,67 @@ if($id_lvl==1){
 }
 
 else {
-    $arg = array(
-        'post_type' =>'areas',
-        'posts_per_page'=>-1,
-        'post_status' => 'publish',
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'areas_cat',
-                'field' => 'ID',
-                'terms' => $id_area
-            )
-        )
-    ) ;
-
-    $posts = get_posts( $arg);
-
-    $cur_lvl_1='';
-    foreach ($posts as $post){
-        $post_id = $post->ID;
 
 
-            if( have_rows('service_content_block') ):
+    $cur_lvl_1="";
+
+        $post_id = $id_area;
 
 
-                while ( have_rows('service_content_block') ) : the_row();
-
-                    $cur_type=get_sub_field('choose_the_type_of_content',$post_id);
-
-                    if($cur_type=='text'):
+            if( have_rows('service_content_block',$post_id) ):
 
 
-                        $cur_lvl_1 .='<div class="content">'.
+                while ( have_rows('service_content_block',$post_id) ) : the_row();
 
-                             get_sub_field('add_a_text_block',$post_id).'
+                    $cur_type=get_sub_field("choose_the_type_of_content", $post_id);
 
-                        </div> ';
+                    if($cur_type=='text') {
+
+                        $text_block = get_sub_field('add_a_text_block',$post_id);
+                        $cur_lvl_1.= "<div class='content'>".$text_block."</div>";
 
 
-                     else:
+
+                    } else {
 
 
-                        if( have_rows('add_a_drop_down_list') ):
+                        if (have_rows('add_a_drop_down_list', $post_id)) {
 
-                            $cur_lvl_1.='<!-- accordion -->
-                            <div class="accordion accordion_2">
-                                <dl>';
-                                     while ( have_rows('add_a_drop_down_list') ) : the_row();
+                            $cur_lvl_1 .= "<!-- accordion -->
+                            <div class='accordion accordion_2'>
+                                <dl>";
+                            while (have_rows('add_a_drop_down_list', $post_id)) : the_row();
 
-                                        $cur_lvl_1.='<dt>'.get_sub_field('add_a_title_of_item',$post_id).'</dt>
+                                $cur_lvl_1 .= "<dt>" . get_sub_field("add_a_title_of_item", $post_id) . "</dt>
                                         <dd>
 
                                             <!--accordion__content -->
-                                            <div class="accordion__content">
+                                            <div class='accordion__content'>
 
-                                                '.get_sub_field('add_a_content_of_item',$post_id).'
+                                                ".get_sub_field('add_a_content_of_item', $post_id) ."
 
                                             </div>
                                             <!--/accordion__content -->
 
-                                        </dd>';
+                                        </dd>";
 
-                                    endwhile;
-                            $cur_lvl_1.='</dl>
+                            endwhile;
+                            $cur_lvl_1 .= "</dl>
                             </div>
-                            <!-- /accordion -->';
+                            <!-- /accordion -->";
 
-                        endif;
+                        }
 
-                        ?>
+                    }
 
-                    <?php  endif;?>
-
-
-
-                <?php endwhile;
-
-            else :
-
-                // no rows found
+                endwhile;
 
             endif;
 
 
 
 
-    }
+
 
 
     $json_data = '{
@@ -433,7 +407,7 @@ else {
                  <!-- popup-detail -->
                             <div class=\"popup-detail\">
 
-                                <h2 class=\"site__title site__title_6\">'.$post_id.'</h2>
+                                <h2 class=\"site__title site__title_6\">'.get_the_title($post_id).'</h2>
 
                                 '.$cur_lvl_1.'
 
