@@ -3,9 +3,9 @@ Theme Name: EMF
 Author: Websters
 Version: 1.0
 */
-.wpcf7-response-output{
-    display: none !important;
-}
+/*.wpcf7-response-output{*/
+    /*display: none !important;*/
+/*}*/
 .site__field_width1 br{
     display: none !important;
 }
@@ -16,4 +16,66 @@ span.wpcf7-not-valid-tip {
 }
 .wpcf7-not-valid {
     border: 1px solid red !important;
+}
+h3#reply-title {
+    display: none !important;
+}
+
+p.comment-notes {
+    display: none !important;
+}
+
+.wpcf7-form-control-wrap {
+    position: relative;
+    width: 100% !important;
+}
+span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required.nice-checkbox.nice-checkbox_2.wpcf7-not-valid{    border: none !important;
+}
+
+.wpcf7-not-valid .wpcf7-list-item label:after {
+    border: 1px solid red !important;
+}
+
+.contact__sign-area-red{
+    border: 3px dashed red !important;
+}
+span.wpcf7-form-control-wrap.sign_val {
+    display: none !important;
+}
+
+div.wpcf7-validation-errors {
+    color: #fec303 !important;
+    border: none !important;
+}
+div.wpcf7-mail-sent-ok {
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+p.logged-in-as a {
+    color: #fff !important;
+}
+.content_error a{
+    color: #fec303;
+}
+
+
+
+
+.comments_custom {
+    border: 1px solid #3d3e42;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+span.wpcf7-form-control-wrap.file-1 {
+    opacity: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0em !important;
+    z-index: 2 !important;
+    width: 10em !important;
+    height: 100% !important;
+    font-size: 1em !important;
+    line-height: 1em !important;
 }

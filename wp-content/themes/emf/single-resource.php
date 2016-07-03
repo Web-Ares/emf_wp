@@ -29,15 +29,35 @@
                 </time>
                 <!-- /resources__date -->
 
+
+
                 <!-- resources__info -->
                 <div class="resources__links">
-                    <a href="#" class="resources__links-comments">
-                        Comments <span>2</span>
-                    </a>
-                    <a href="#" class="resources__links-tags">
-                        electrical panel, electrician,inspection,
-                        Uncategorized
-                    </a>
+                      <span class="resources__links-item resources__links-item_comments">
+                          <span><?php comments_number( 'No Comments Yet','1 Comment','Comments <span>%</span>' ); ?></span>
+                            </span>
+
+                    <?php $tmp = $post;
+                    $terms = get_the_terms(get_the_ID(),'resource_cat');
+                    if($terms){ ?>
+
+
+                        <span class="resources__links-item resources__links-item_tags">
+                        <?php
+                        $string_tag='';
+                        foreach ($terms as $term){
+
+                            $string_tag .= $term->name.', ';
+                            ?>
+
+                            <?php
+                        }
+                        echo $string_tag.'</span>';
+                        }
+                        $post = $tmp;
+                        ?>
+
+
                 </div>
                 <!-- /resources__info -->
 
@@ -75,7 +95,7 @@
 
             <!-- site__form -->
             <div class="site__form">
-                <form action="#">
+
 
                     <!-- site__title -->
                     <h3 class="site__title site__title_4">Leave a reply</h3>
@@ -85,55 +105,78 @@
                     <span class="site__required">Your email address will not be published. Required fields are marked * </span>
                     <!-- /site__required -->
 
-                    <!-- site__field -->
+
+            <?php
+            $comment_args = array( '',
+
+                'fields' => apply_filters( 'comment_form_default_fields', array(
+
+                    'author' => '<div class="site__fields"><!-- site__field -->
+                                <div class="site__field site__field_width1"><label for="author">' . __( 'NAME*' ) . '</label> ' .
+
+                        '<input id="author" class="site__input"  name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
+
+                    'email'  => '<!-- site__field -->
+                                <div class="site__field site__field_width1"><label for="email">' . __( 'EMAIL*' ) . '</label> '.
+
+                               '<input id="email" class="site__input"  name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
+
+                    'industry'    => '' ) ),
+
+                'comment_field' => '
+                     <!-- site__field -->
                     <div class="site__field">
-                        <label for="comment" class="site__label">Comment</label>
-                        <textarea name="comment" class="site__textarea" id="comment" cols="30" rows="10"></textarea>
-                    </div>
-                    <!-- /site__field -->
+                    <label class="site__label" for="comment">'. __( 'Comment' ) . '</label>' .
 
-                    <!-- site__fields -->
-                    <div class="site__fields">
+                    '<textarea id="comment" name="comment"  class="site__textarea" cols="30" rows="10" aria-required="true"></textarea>' .
 
-                        <!-- site__field -->
-                        <div class="site__field site__field_width1">
-                            <label for="name" class="site__label">Name*</label>
-                            <input type="text" class="site__input" required name="name" id="name">
-                        </div>
-                        <!-- /site__field -->
+                    '</div>
+                    <!-- /site__field -->',
 
-                        <!-- site__field -->
-                        <div class="site__field site__field_width1">
-                            <label for="email" class="site__label">email*</label>
-                            <input type="email" class="site__input" required name="email" id="email">
-                        </div>
-                        <!-- /site__field -->
+                'comment_notes_after' => '',
+                'label_submit' => '',
+                'class_submit' => 'btn btn_3',
+                'submit_button' => '<button name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s"><span>SEND</span></button>',
+                'submit_field'=>'<div class="contact__send">%1$s %2$s</div>
+                            <!-- /contact__send -->'
 
-                        <!-- site__field -->
-                        <div class="site__field site__field_width1">
-                            <label for="company" class="site__label">Company</label>
-                            <input type="text" class="site__input" name="company" id="company">
-                        </div>
-                        <!-- /site__field -->
+            );
 
-                    </div>
-                    <!-- /site__fields -->
+                  comment_form($comment_args); ?>
 
-                    <!-- contact__send -->
-                    <div class="contact__send">
-
-                        <button class="btn btn_3" type="submit">
-                            <span>send</span>
-                        </button>
-
-                    </div>
-                    <!-- /contact__send -->
-
-                </form>
             </div>
             <!-- /site__form -->
 
+            <div class="content">
+                <?php $comments = get_approved_comments(get_the_ID() );
+                if($comments):
+                ?>
+                <h2>Latest comments </h2>
+                <?php
+
+                foreach ($comments as $comment):
+
+               ?>
+
+
+                    <div class="comments_custom">
+                        <?php  $company = get_comment_meta($comment->comment_ID,'company_cur');
+
+                        if($company[0]){
+                            $from = ' From: ';
+                        } else {
+                            $from='';
+                        }
+                        ?>
+                        <h6><?php echo $comment->comment_author?></h6>
+                            <h6><?php echo $from.$company[0]; ?></h6>
+                        said: <div class="comments_content">"<?php echo $comment->comment_content; ?>"</div>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php endif; ?>
         </div>
+            </div>
         <!-- /site__content__inner -->
 
 

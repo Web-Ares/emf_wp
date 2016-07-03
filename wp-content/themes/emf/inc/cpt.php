@@ -20,7 +20,7 @@ function custom_post_type()
 
     $args = array(
         'labels' => $labels,
-        'supports' => array('title','thumbnail','editor','excerpt'),
+        'supports' => array('title','thumbnail','editor','excerpt','comments'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -37,6 +37,20 @@ function custom_post_type()
     );
 
     register_post_type('resource', $args);
+
+    function resource_category() {
+
+        register_taxonomy(
+            'resource_cat',
+            'resource',
+            array(
+                'label' => __( 'Add a Category' ),
+                'hierarchical' => false,
+            )
+        );
+    }
+    add_action( 'init', 'resource_category' );
+
 
     $labels = array(
 

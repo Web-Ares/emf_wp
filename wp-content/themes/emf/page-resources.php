@@ -27,12 +27,29 @@ get_header(); ?>
             <div class="resources__items">
 
                 <?php
+
+                if($term_sort = $_GET['term']){
+
+                    $sort = array(
+                        array(
+                            'taxonomy' => 'resource_cat',
+                            'field' => 'slug',
+                            'terms' => $term_sort
+                        )
+                    );
+                }
+
+
+                $cur_perm = get_the_permalink();
                 $tmp = $post;
                 $args = array(
                     'post_type' => 'resource',
                     'posts_per_page' => -1,
                     'orderby' => 'date',
-                    'order' => 'DESC'
+                    'order' => 'DESC',
+                    'tax_query' => $sort
+
+
                 );
 
                 $resource = new WP_query ( $args );
@@ -42,6 +59,7 @@ get_header(); ?>
                     while ( $resource->have_posts()) :
 
                         $resource->the_post();
+                        $cur_id = get_the_ID();
                         $thumb_id = get_post_thumbnail_id();
                         $thumb_url = wp_get_attachment_image_src($thumb_id,'full')[0];
                         $date_d = get_the_date('j');
@@ -50,49 +68,68 @@ get_header(); ?>
                         $link_inner = get_permalink();
                         ?>
 
+
                         <!-- resources__item -->
-                        <a href="<?php echo $link_inner; ?>" class="resources__item">
+                        <div class="resources__item">
 
                             <!-- resources__item-pic -->
-                            <div class="resources__item-pic">
-                                <img src="<?php echo $thumb_url; ?>" width="230" height="186" alt="">
+                        <?php $title=get_the_title(); ?>
+                            <a href="<?php echo $link_inner; ?>" class="resources__item-pic">
+                                <img src="<?php echo $thumb_url; ?>" width="230" height="186" alt="<?php echo $title; ?>">
 
                                 <!-- resources__date -->
                                 <time datetime="2016-06-23" class="resources__date">
 
-                                    <span class="resources__date-day"><?php echo $date_d;?></span>
-                                    <span class="resources__date-month"><?php echo $date_m;?></span>
-                                    <span><?php echo $date_y;?></span>
+                                    <span class="resources__date-day"><?php echo $date_d; ?></span>
+                                    <span class="resources__date-month"><?php echo $date_m; ?></span>
+                                    <span><?php echo $date_y; ?></span>
 
                                 </time>
                                 <!-- /resources__date -->
 
-                            </div>
+                            </a>
                             <!-- /resources__item-pic -->
 
-                            <h2 class="site__title site__title_5"><?php the_title();?></h2>
+                            <h2 class="site__title site__title_5"><?php echo $title; ?></h2>
 
 
-                            <span class="resources__links-item resources__links-item_comments">
-                                Comments <span>2</span>
-                            </span>
-                            <?php
-                            $myExcerpt = get_the_excerpt();
-                            $tags = array("<p>", "</p>");
-                            $myExcerpt = str_replace($tags, "", $myExcerpt);
-                            $myExcerpt = substr($myExcerpt, 0, 88);
-                            ?>
-                            <p><?php echo $myExcerpt ?> [...]</p>
+                            <a href="#" class="resources__links-item resources__links-item_comments">
+                                <?php comments_number( 'No Comments Yet','1 Comment','Comments <span>%</span>' ); ?>
+                            </a>
 
+                        <?php
+                        $myExcerpt = get_the_excerpt();
+                        $tags = array("<p>", "</p>");
+                        $myExcerpt = str_replace($tags, "", $myExcerpt);
+                        $myExcerpt = substr($myExcerpt, 0, 88);
+                        ?>
+                        <p><?php echo $myExcerpt ?> [...]</p>
+
+
+                            <?php $tmp = $post;
+                            $terms = get_the_terms($cur_id,'resource_cat');
+                            if($terms){ ?>
 
                             <span class="resources__links-item resources__links-item_tags">
-                                electrical panel, electrician,inspection,
-                                Uncategorized
-                            </span>
+                                <a href="<?php echo $cur_perm;  ?>">All tags, </a>
+                            <?php
+                            foreach ($terms as $term){
+                                $term_cur_slug=$term->slug;
+                                    if($term_cur_slug==$term_sort){
+                                        $active = 'active';
+                                    } else{
+                                        $active = '';
+                                    }
+                                ?>
+                                <a href="<?php echo $cur_perm.'?term='.$term_cur_slug.'' ?>" class="<?php echo $active; ?>"><?php echo $term->name; ?></a>,
+                            <?php
+                            }
+                            echo '</span>';
+                            }
+                                ?>
 
-                        </a>
+                        </div>
                         <!-- /resources__item -->
-
 
                     <?php endwhile;
                 }

@@ -6,10 +6,11 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
+    <link rel="icon" type="image/png" sizes="64x64" href='img/favicons/favicon-64x64.png' >
 
     <title>Title</title>
 
-    <!--<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/south-street/jquery-ui.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/signature.css">
     <link rel="stylesheet" href="css/contact.css">
 
@@ -200,33 +201,30 @@
                             <h3 class="site__title site__title_4">Property type*</h3>
                             <!-- /site__title -->
 
-                            <!-- site__fields -->
-                            <div class="site__fields">
+                            <!-- nice-checkbox -->
+                            <span class="wpcf7-form-control wpcf7-checkbox nice-checkbox nice-checkbox_width nice-checkbox_width1">
 
-                                <!-- nice-checkbox -->
-                                <div class="nice-checkbox site__field_width1">
-                                    <input type="checkbox" required name="residential" id="residential">
-                                    <label for="residential" class="site__label">Residential</label>
-                                </div>
-                                <!-- /nice-checkbox -->
+                                <span class="wpcf7-list-item">
+                                    <label>
+                                        <input type="checkbox" name="residential" id="residential">
+                                        <span class="wpcf7-list-item-label">Residential</span>
+                                    </label>
+                                </span>
+                                 <span class="wpcf7-list-item">
+                                    <label>
+                                        <input type="checkbox" name="commercial" id="commercial">
+                                        <span class="wpcf7-list-item-label">Commercial</span>
+                                    </label>
+                                </span>
+                                 <span class="wpcf7-list-item">
+                                    <label>
+                                        <input type="checkbox" name="industrial" id="industrial">
+                                        <span class="wpcf7-list-item-label">Industrial</span>
+                                    </label>
+                                </span>
 
-                                <!-- nice-checkbox -->
-                                <div class="nice-checkbox site__field_width1">
-                                    <input type="checkbox" required name="commercial" id="commercial">
-                                    <label for="commercial" class="site__label">Commercial</label>
-                                </div>
-                                <!-- /nice-checkbox -->
-
-                                <!-- nice-checkbox -->
-                                <div class="nice-checkbox site__field_width1">
-                                    <input type="checkbox" required name="industrial" id="industrial">
-                                    <label for="industrial" class="site__label">Industrial</label>
-                                </div>
-                                <!-- /nice-checkbox -->
-
-
-                            </div>
-                            <!-- /site__fields -->
+                            </span>
+                            <!-- /nice-checkbox -->
 
                             <!-- site__title -->
                             <h3 class="site__title site__title_4">Problem Description*</h3>
@@ -242,7 +240,7 @@
                             <!-- site__field -->
                             <div class="site__field site__field_width2">
                                 <label for="date" class="site__label">Preferred Date of Service</label>
-                                <input type="text" class="site__input" required name="date" id="date">
+                                <input type="text" class="site__input datepicker" required name="date" id="date">
                             </div>
                             <!-- /site__field -->
 
@@ -263,10 +261,16 @@
                             <!-- /contact__text -->
 
                             <!-- nice-checkbox -->
-                            <div class="nice-checkbox nice-checkbox_2 site__field_width1">
-                                <input type="checkbox" required name="agree" id="agree">
-                                <label for="agree" class="site__label">I Agree</label>
-                            </div>
+                            <span class="wpcf7-form-control wpcf7-checkbox nice-checkbox nice-checkbox_2">
+
+                                <span class="wpcf7-list-item">
+                                    <label>
+                                        <input type="checkbox" name="agree" id="agree">
+                                        <span class="wpcf7-list-item-label">I Agree</span>
+                                    </label>
+                                </span>
+
+                            </span>
                             <!-- /nice-checkbox -->
 
                             <!-- site__title -->
@@ -277,11 +281,7 @@
                             <div class="contact__sign">
 
                                 <!-- contact__sign-area -->
-                                <div class="contact__sign-area">
-
-                                    <!--<img src="pic/sign.png" width="240" height="94" alt="">-->
-
-                                </div>
+                                <div class="contact__sign-area"></div>
                                 <!-- /contact__sign-area -->
 
                                 <!-- contact__sign-refresh -->

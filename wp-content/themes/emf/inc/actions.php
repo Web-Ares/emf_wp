@@ -85,6 +85,23 @@ function add_js()
 
 
     }
+    if (is_page_template('page-shedule.php')){
+        wp_enqueue_style('signature', get_template_directory_uri().'/dist/css/signature.css');
+        wp_enqueue_style('contact', get_template_directory_uri().'/dist/css/contact.css');
+        wp_enqueue_style('jquery_ui', get_template_directory_uri().'/dist/css/jquery-ui.css');
+
+        wp_register_script('ui',get_template_directory_uri().'/dist/js/vendors/jquery-ui.min.js');
+        wp_enqueue_script('ui');
+        wp_register_script('touch',get_template_directory_uri().'/dist/js/vendors/jquery.ui.touch-punch.min.js');
+        wp_enqueue_script('touch');
+        wp_register_script('sign',get_template_directory_uri().'/dist/js/vendors/jquery.signature.min.js');
+        wp_enqueue_script('sign');
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+
+
+    }
     if (is_page_template('page-contact.php')){
 
         wp_enqueue_style('index', get_template_directory_uri().'/dist/css/contact.css');
@@ -123,7 +140,7 @@ function add_js()
         wp_enqueue_script('main');
     }
 
-    if (is_singular('resource')){
+    if (is_singular('resource') || is_page_template('commenterror.php')){
 
         wp_enqueue_style('resources', get_template_directory_uri().'/dist/css/resources-page.css');
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
@@ -135,6 +152,27 @@ function add_js()
         wp_enqueue_style('services-page', get_template_directory_uri().'/dist/css/services-page.css');
         wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
         wp_enqueue_script('swiper');
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
+    if (is_page_template('page-careers.php')){
+
+        wp_enqueue_style('careers', get_template_directory_uri().'/dist/css/careers-page.css');
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
+
+    if (is_page_template('page-emergency.php')){
+        wp_enqueue_style('signature', get_template_directory_uri().'/dist/css/signature.css');
+        wp_enqueue_style('index', get_template_directory_uri().'/dist/css/contact.css');
+        wp_register_script('ui',get_template_directory_uri().'/dist/js/vendors/jquery-ui.min.js');
+        wp_enqueue_script('ui');
+        wp_register_script('touch',get_template_directory_uri().'/dist/js/vendors/jquery.ui.touch-punch.min.js');
+        wp_enqueue_script('touch');
+        wp_register_script('sign',get_template_directory_uri().'/dist/js/vendors/jquery.signature.min.js');
+        wp_enqueue_script('sign');
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
         wp_enqueue_script('main');
 
@@ -172,19 +210,19 @@ if( have_rows('image_gallery',$post_id) ):
 
     while ( have_rows('image_gallery',$post_id) ) : the_row();
         $cur_slide = get_sub_field('add_a_new_image',$post_id);
-        $thumb_array .='<div class=\"swiper-slide swiper-slide-active is-selected\" style=\"background-image:url('.$cur_slide.')\">
+        $thumb_array .='<div class="swiper-slide swiper-slide-active is-selected" style="background-image:url('.$cur_slide.')">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -194,10 +232,10 @@ if( have_rows('image_gallery',$post_id) ):
 
                                 </div>';
        $slide .='
- <div class=\"swiper-slide\">
+ <div class="swiper-slide">
   <!-- gallery__left -->
-    <div class=\"gallery__left\">
-        <div class=\"gallery__img\" style=\"background-image: url('.$cur_slide.')\"></div>
+    <div class="gallery__left">
+        <div class="gallery__img" style="background-image: url('.$cur_slide.')"></div>
     </div>
     <!-- /gallery__left -->
          </div>';
@@ -210,25 +248,25 @@ else :
 endif;
     if($thumb_array!='' || $slide!=''){
         $result.= '<!-- swiper-container -->
-                    <div class=\"swiper-container gallery__top\">
-                        <div class=\"swiper-wrapper\">';
+                    <div class="swiper-container gallery__top">
+                        <div class="swiper-wrapper">';
         $result.= $slide;
         $result.=' </div>
                     </div>
                     <!-- /swiper-container -->';
         $result.= ' <!-- gallery__thumbs -->
-                    <div class=\"gallery__thumbs\">
-                        <div class=\"swiper-container\">
+                    <div class="gallery__thumbs">
+                        <div class="swiper-container">
 
-                            <div class=\"swiper-wrapper\">';
+                            <div class="swiper-wrapper">';
         $result.=$thumb_array;
         $result.='   </div>
 
                         </div>
 
                         <!-- Add Arrows -->
-                        <div class=\"swiper-button-next swiper-button-white\"></div>
-                        <div class=\"swiper-button-prev swiper-button-white\"></div>
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
 
                     </div>
                     <!-- /gallery__thumbs -->';
@@ -239,10 +277,10 @@ endif;
 
 
 
-        $json_data = '{
-                "html": "
+        $json_data = '
+               
                  <!-- gallery -->
-                <div class=\"gallery\">
+                <div class="gallery">
 
                     '.$result.'
 
@@ -250,14 +288,14 @@ endif;
                 <!-- /gallery -->
 
                 <!--gallery-popup__text -->
-                <div class=\"gallery-popup__text\">
+                <div class="gallery-popup__text">
 
                     '.$content.'
 
                 </div>
                 <!-- /gallery-popup__text -->
-                "
-}';
+                
+';
 
 
 
@@ -309,7 +347,7 @@ if($id_lvl==1){
         $post_id = $post->ID;
         $code = get_field('number_area_code_field',$post_id);
         $cur_lvl_1 .='  <!-- popup-areas__address -->
-                                <a class=\"popup-areas__address ajax-block__btn\"  data-lvl=\"2\" data-id=\"'.$post_id.'\" href=\"#\">
+                                <a class="popup-areas__address ajax-block__btn"  data-lvl="2" data-id="'.$post_id.'" href="#">
 
                                     <span>'.get_the_title($post_id).'</span>
                                     '.$code.'
@@ -319,18 +357,17 @@ if($id_lvl==1){
 
     }
 
-    $json_data = '{
-                "html": "
+    $json_data = '
                 <!-- popup-areas -->
-                            <div class=\"popup-areas ajax-block\" data-block=\"description\">
+                            <div class="popup-areas ajax-block" data-block="description">
 
                               '.$cur_lvl_1.'
 
                                
                             </div>
                             <!-- /popup-areas -->
-                "
-}';
+                
+';
 
 
 
@@ -402,19 +439,17 @@ else {
 
 
 
-    $json_data = '{
-                "html": "
+    $json_data = '
                  <!-- popup-detail -->
-                            <div class=\"popup-detail\">
+                            <div class="popup-detail">
 
-                                <h2 class=\"site__title site__title_6\">'.get_the_title($post_id).'</h2>
+                                <h2 class="site__title site__title_6">'.get_the_title($post_id).'</h2>
 
                                 '.$cur_lvl_1.'
 
                             </div>
                             <!-- /popup-detail -->
-                "
-}';
+                ';
 
 
 

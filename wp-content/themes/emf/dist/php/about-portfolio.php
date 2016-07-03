@@ -1,100 +1,98 @@
 <?php
 $popupId = $_GET['popupId'];
 
-$json_data = '{
-                "html": "
-                 <!-- gallery -->
-                <div class=\"gallery\">
+$json_data = '<!-- gallery -->
+                <div class="gallery">
 
                     <!-- swiper-container -->
-                    <div class=\"swiper-container gallery__top\">
-                        <div class=\"swiper-wrapper\">
-                            <div class=\"swiper-slide\">
+                    <div class="swiper-container gallery__top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
                             </div>
-                            <div class=\"swiper-slide\">
+                            <div class="swiper-slide">
 
                                 <!-- gallery__left -->
-                                <div class=\"gallery__left\">
-                                    <div class=\"gallery__img\" style=\"background-image: url(pic/about-gall-pic1.jpg)\"></div>
+                                <div class="gallery__left">
+                                    <div class="gallery__img" style="background-image: url(pic/about-gall-pic1.jpg)"></div>
                                 </div>
                                 <!-- /gallery__left -->
 
@@ -105,23 +103,23 @@ $json_data = '{
                     <!-- /swiper-container -->
 
                     <!-- gallery__thumbs -->
-                    <div class=\"gallery__thumbs\">
-                        <div class=\"swiper-container\">
+                    <div class="gallery__thumbs">
+                        <div class="swiper-container">
 
-                            <div class=\"swiper-wrapper\">
-                                <div class=\"swiper-slide swiper-slide-active is-selected\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide swiper-slide-active is-selected" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -130,19 +128,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -151,19 +149,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -172,19 +170,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -193,19 +191,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -214,19 +212,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -235,19 +233,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -256,19 +254,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -277,19 +275,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -298,19 +296,19 @@ $json_data = '{
                                     <!-- /gallery__thumbs-info -->
 
                                 </div>
-                                <div class=\"swiper-slide\" style=\"background-image:url(pic/testimonials-gallery/person1.jpg)\">
+                                <div class="swiper-slide" style="background-image:url(pic/testimonials-gallery/person1.jpg)">
 
                                     <!-- gallery__thumbs-info -->
-                                    <div class=\"gallery__thumbs-info\">
+                                    <div class="gallery__thumbs-info">
 
                                         <!-- gallery__thumbs-current-num -->
-                                <span class=\"gallery__thumbs-current-num\">
+                                <span class="gallery__thumbs-current-num">
                                     02
                                 </span>
                                         <!-- /gallery__thumbs-current-num -->
 
                                         <!-- gallery__thumbs-total-count -->
-                                <span class=\"gallery__thumbs-total-count\">
+                                <span class="gallery__thumbs-total-count">
                                     04
                                 </span>
                                         <!-- /gallery__thumbs-total-count -->
@@ -324,8 +322,8 @@ $json_data = '{
                         </div>
 
                         <!-- Add Arrows -->
-                        <div class=\"swiper-button-next swiper-button-white\"></div>
-                        <div class=\"swiper-button-prev swiper-button-white\"></div>
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
 
                     </div>
                     <!-- /gallery__thumbs -->
@@ -334,7 +332,7 @@ $json_data = '{
                 <!-- /gallery -->
 
                 <!--gallery-popup__text -->
-                <div class=\"gallery-popup__text\">
+                <div class="gallery-popup__text">
 
                     <h2>1570 Asbury Ave,
                         Winnetka, IL</h2>
@@ -361,13 +359,7 @@ $json_data = '{
                     </p>
 
                 </div>
-                <!-- /gallery-popup__text -->
-                "
-}';
-
-
-$json_data = str_replace("\r\n",'',$json_data);
-$json_data = str_replace("\n",'',$json_data);
+                <!-- /gallery-popup__text -->';
 
 echo $json_data;
 exit;
