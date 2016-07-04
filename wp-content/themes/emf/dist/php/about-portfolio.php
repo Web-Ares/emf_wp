@@ -2,7 +2,7 @@
 $popupId = $_GET['popupId'];
 
 $json_data = '<!-- gallery -->
-                <div class="gallery">
+                <div class="gallery gallery_2">
 
                     <!-- swiper-container -->
                     <div class="swiper-container gallery__top">

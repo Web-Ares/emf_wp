@@ -21,6 +21,7 @@
                     <?php   $date_d = get_the_date('j');
                     $date_m = get_the_date('M');
                     $date_y = get_the_date('Y');
+                    $cur_permalink = get_the_permalink(94);
                ?>
                     <span class="resources__date-day"><?php echo $date_d; ?></span>
                     <span class="resources__date-month"><?php echo $date_m; ?></span>
@@ -45,14 +46,13 @@
                         <span class="resources__links-item resources__links-item_tags">
                         <?php
                         $string_tag='';
-                        foreach ($terms as $term){
+                        foreach ($terms as $key => $term){
 
-                            $string_tag .= $term->name.', ';
                             ?>
-
+                            <a href="<?php echo $cur_permalink; ?>?term=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a><?if($key!=(count($terms)-1)){ echo ', '; } ?>
                             <?php
                         }
-                        echo $string_tag.'</span>';
+                        echo '</span>';
                         }
                         $post = $tmp;
                         ?>
@@ -94,7 +94,7 @@
             </div>
 
             <!-- site__form -->
-            <div class="site__form">
+            <div class="site__form site__form_comment">
 
 
                     <!-- site__title -->
@@ -147,11 +147,14 @@
             </div>
             <!-- /site__form -->
 
+
+            <?php $comments = get_approved_comments(get_the_ID() );
+            if($comments):
+            ?>
+            <h2 class="site__title site__title_2">Latest comments </h2>
             <div class="content">
-                <?php $comments = get_approved_comments(get_the_ID() );
-                if($comments):
-                ?>
-                <h2>Latest comments </h2>
+
+
                 <?php
 
                 foreach ($comments as $comment):
@@ -159,7 +162,7 @@
                ?>
 
 
-                    <div class="comments_custom">
+                    <div class="comments-customer">
                         <?php  $company = get_comment_meta($comment->comment_ID,'company_cur');
 
                         if($company[0]){
@@ -170,12 +173,12 @@
                         ?>
                         <h6><?php echo $comment->comment_author?></h6>
                             <h6><?php echo $from.$company[0]; ?></h6>
-                        said: <div class="comments_content">"<?php echo $comment->comment_content; ?>"</div>
+                        said: <div class="comments-customer__content">"<?php echo $comment->comment_content; ?>"</div>
                     </div>
                 <?php endforeach; ?>
-
+            </div>
                 <?php endif; ?>
-        </div>
+
             </div>
         <!-- /site__content__inner -->
 

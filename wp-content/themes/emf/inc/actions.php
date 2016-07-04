@@ -204,7 +204,6 @@ function get_post_gallery_about(){
     $slide='';
     $thumb_array='';
     $result='';
-
 if( have_rows('image_gallery',$post_id) ):
 
 
@@ -473,5 +472,131 @@ exit;
 add_action('wp_ajax_get_areas','get_areas');
 
 add_action('wp_ajax_nopriv_get_areas', 'get_areas');
+
+
+
+function get_resources(){
+
+
+$tagId = $_GET['tagId'];
+
+    $output = '';
+    if($term_sort = $tagId){
+
+        $sort = array(
+            array(
+                'taxonomy' => 'resource_cat',
+                'field' => 'slug',
+                'terms' => $tagId
+            )
+        );
+    }
+    if($tagId=='all-tags'){
+        $sort='';
+    }
+
+
+
+
+    $args = array(
+        'post_type' => 'resource',
+        'posts_per_page' => -1,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'tax_query' => $sort
+
+
+    );
+
+$resource = new WP_query ( $args );
+
+if ( $resource->have_posts() ) { ?>
+
+        <?php while ( $resource->have_posts()) :
+
+            $resource->the_post();
+            $cur_id = get_the_ID();
+            $thumb_id = get_post_thumbnail_id();
+            $thumb_url = wp_get_attachment_image_src($thumb_id,'full')[0];
+            $date_d = get_the_date('j');
+            $date_m = get_the_date('M');
+            $date_y = get_the_date('Y');
+            $link_inner = get_permalink();
+            $date_full = get_the_date('Y-m-d');
+            $title=get_the_title();
+            $myExcerpt = get_the_excerpt();
+            $tags = array("<p>", "</p>");
+            $myExcerpt = str_replace($tags, "", $myExcerpt);
+            $myExcerpt = substr($myExcerpt, 0, 88);
+            $output.='
+             <!-- resources__item -->
+            <div class="resources__item">
+
+                <!-- resources__item-pic -->
+                <a href="'. $link_inner.'" class="resources__item-pic">
+                    <img src="'.$thumb_url.'?>" width="230" height="186" alt="'.$title.'">
+
+                    <!-- resources__date -->
+                    <time datetime="'.$date_full.'" class="resources__date">
+
+                        <span class="resources__date-day">'.$date_d.'</span>
+                        <span class="resources__date-month">'.$date_m.'</span>
+                        <span>'.$date_y.'</span>
+
+                    </time>
+                    <!-- /resources__date -->
+
+                </a>
+                <!-- /resources__item-pic -->
+
+                <h2 class="site__title site__title_5">'.$title.'</h2>
+
+
+                <a href="#" class="resources__links-item resources__links-item_comments">'.
+                get_comments_number_text( "No Comments Yet","1 Comment","Comments <span>%</span>" ).'</a><p>'.$myExcerpt.' [...]</p>';
+
+
+            
+                $terms = get_the_terms($cur_id,'resource_cat');
+                if($terms){
+
+                    $output.='<span class="resources__links-item resources__links-item_tags">
+                                <a data-id="all-tags" href="#">All tags, </a>';
+                   
+                    foreach ($terms as $term){
+                        $term_cur_slug=$term->slug;
+                        if($term_cur_slug==$term_sort){
+                            $active = 'active';
+                        } else{
+                            $active = '';
+                        }
+
+                        $output.='<a data-id="'.$term_cur_slug.'" href="#?term='.$term_cur_slug.'" class="'.$active.'">'.$term->name.'</a>,';
+                       
+                    }
+                    $output.= '</span>';
+                    }
+
+
+        $output.='</div>
+            <!-- /resources__item -->';
+
+         endwhile; 
+    
+    
+$json_data = $output;
+
+echo $json_data;
+exit;
+
+
+
+}
+}
+
+
+add_action('wp_ajax_get_resources','get_resources');
+
+add_action('wp_ajax_nopriv_get_resources', 'get_resources');
 
 ?>

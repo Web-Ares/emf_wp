@@ -54,6 +54,8 @@ function my_custom_die_handler($message, $title='', $args=array()) {
     }
 }
 
+define('DISALLOW_FILE_MODS',true); // Disable core and plugin updates
+
 
 // Load library files.
 require_once( TEMPLATEINC . '/cpt.php' );
