@@ -206,10 +206,11 @@ function get_post_gallery_about(){
     $result='';
 if( have_rows('image_gallery',$post_id) ):
 
-
+    $counter = 0;
     while ( have_rows('image_gallery',$post_id) ) : the_row();
         $cur_slide = get_sub_field('add_a_new_image',$post_id);
-        $thumb_array .='<div class="swiper-slide swiper-slide-active is-selected" style="background-image:url('.$cur_slide.')">
+        if($counter==0){$active_slide ='swiper-slide-active is-selected'; } else {$active_slide='';}
+        $thumb_array .='<div class="swiper-slide '.$active_slide.'" style="background-image:url('.$cur_slide.')">
 
                                     <!-- gallery__thumbs-info -->
                                     <div class="gallery__thumbs-info">
@@ -239,7 +240,7 @@ if( have_rows('image_gallery',$post_id) ):
     <!-- /gallery__left -->
          </div>';
 
-
+        $counter++;
      endwhile;
 
 else :
@@ -299,8 +300,7 @@ endif;
 
 
 
-    $json_data = str_replace("\r\n",'',$json_data);
-    $json_data = str_replace("\n",'',$json_data);
+
 
     echo $json_data;
     exit;
@@ -533,8 +533,8 @@ if ( $resource->have_posts() ) { ?>
             <div class="resources__item">
 
                 <!-- resources__item-pic -->
-                <a href="'. $link_inner.'" class="resources__item-pic">
-                    <img src="'.$thumb_url.'?>" width="230" height="186" alt="'.$title.'">
+                <a href="'. $link_inner.'" class="resources__item-pic" style="background-image : url('.$thumb_url.')">
+                   
 
                     <!-- resources__date -->
                     <time datetime="'.$date_full.'" class="resources__date">
@@ -549,7 +549,7 @@ if ( $resource->have_posts() ) { ?>
                 </a>
                 <!-- /resources__item-pic -->
 
-                <h2 class="site__title site__title_5">'.$title.'</h2>
+                <a href="'.$link_inner.'" class="site__title site__title_5">'.$title.'</a>
 
 
                 <a href="#" class="resources__links-item resources__links-item_comments">'.
@@ -563,15 +563,18 @@ if ( $resource->have_posts() ) { ?>
                     $output.='<span class="resources__links-item resources__links-item_tags">
                                 <a data-id="all-tags" href="#">All tags, </a>';
                    
-                    foreach ($terms as $term){
+                    foreach ($terms as $key=>$term){
                         $term_cur_slug=$term->slug;
                         if($term_cur_slug==$term_sort){
                             $active = 'active';
                         } else{
                             $active = '';
                         }
-
-                        $output.='<a data-id="'.$term_cur_slug.'" href="#?term='.$term_cur_slug.'" class="'.$active.'">'.$term->name.'</a>,';
+                        $term_name  = $term->name.', ';
+                        if($key+1==count($terms)){
+                            $term_name  = $term->name;
+                        }
+                        $output.='<a data-id="'.$term_cur_slug.'" href="#?term='.$term_cur_slug.'" class="'.$active.'">'.$term_name.'</a>';
                        
                     }
                     $output.= '</span>';

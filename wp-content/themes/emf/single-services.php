@@ -11,7 +11,7 @@
         <aside class="site__content__aside">
 
             <!-- site__content__aside-img -->
-            <div class="site__content__aside-img" style="background-image: url('img/services-it-bg.jpg');"></div>
+            <div class="site__content__aside-img" style="background-image: url('<?php the_field('aside_image'); ?>');"></div>
             <!-- /site__content__aside-img -->
 
         </aside>

@@ -72,6 +72,15 @@ get_header(); ?>
             <div class="swiper-button-prev"></div>
         </div>
 
+
+        <!-- awards__text-wrap -->
+        <div class="awards__text-wrap nice-scroll">
+
+            <div></div>
+
+        </div>
+        <!-- /awards__text-wrap -->
+        
     </div>
     <!-- /site__content__wrap -->
 

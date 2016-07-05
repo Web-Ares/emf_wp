@@ -23,8 +23,6 @@ get_header(); ?>
         <!-- site__content__inner -->
         <div class="site__content__inner nice-scroll">
 
-
-
                 <?php
 
                 if($term_sort = $_GET['term']){
@@ -54,11 +52,13 @@ get_header(); ?>
                 $resource = new WP_query ( $args );
 
                 if ( $resource->have_posts() ) { ?>
+
             <!-- resources__ajax-wrap -->
             <div class="resources__ajax-wrap">
 
                 <!-- resources__items -->
                 <div class="resources__items">
+
                     <?php while ( $resource->have_posts()) :
 
                         $resource->the_post();
@@ -78,8 +78,8 @@ get_header(); ?>
 
                             <!-- resources__item-pic -->
                         <?php $title=get_the_title(); ?>
-                            <a href="<?php echo $link_inner; ?>" class="resources__item-pic">
-                                <img src="<?php echo $thumb_url; ?>" width="230" height="186" alt="<?php echo $title; ?>">
+                            <a href="<?php echo $link_inner; ?>" class="resources__item-pic" style="background-image : url(<?php echo $thumb_url; ?>)">
+                             
 
                                 <!-- resources__date -->
                                 <time datetime="<?php echo $date_full; ?>" class="resources__date">
@@ -94,7 +94,7 @@ get_header(); ?>
                             </a>
                             <!-- /resources__item-pic -->
 
-                            <h2 class="site__title site__title_5"><?php echo $title; ?></h2>
+                            <a href="<?php echo $link_inner; ?>" class="site__title site__title_5"><?php echo $title; ?></a>
 
 
                             <a href="#" class="resources__links-item resources__links-item_comments">
@@ -110,27 +110,40 @@ get_header(); ?>
                         <p><?php echo $myExcerpt ?> [...]</p>
 
 
-                            <?php $tmp = $post;
+                            <?php
+
+
+                            $tmp = $post;
                             $terms = get_the_terms($cur_id,'resource_cat');
-                            if($terms){ ?>
+
+
+                            if($terms){
+
+
+                            ?>
 
                             <span class="resources__links-item resources__links-item_tags">
                                 <a  data-id="all-tags" href="<?php echo $cur_perm;  ?>">All tags, </a>
                             <?php
-                            foreach ($terms as $term){
+                            foreach ($terms as $key => $term){
                                 $term_cur_slug=$term->slug;
                                     if($term_cur_slug==$term_sort){
                                         $active = 'active';
                                     } else{
                                         $active = '';
                                     }
+                                $term_name  = $term->name.', ';
+                                if($key+1==count($terms)){
+                                    $term_name  = $term->name;
+                                }
                                 ?>
-                                <a data-id="<?php echo $term_cur_slug; ?>" href="<?php echo $cur_perm.'?term='.$term_cur_slug.'' ?>" class="<?php echo $active; ?>"><?php echo $term->name; ?></a>,
+                                <a data-id="<?php echo $term_cur_slug; ?>" href="<?php echo $cur_perm.'?term='.$term_cur_slug.'' ?>" class="<?php echo $active; ?>"><?php echo  $term_name;  ?></a>
                             <?php
                             }
+
                             echo '</span>';
                             }
-                                ?>
+                          ?>
 
                         </div>
                         <!-- /resources__item -->
@@ -139,13 +152,14 @@ get_header(); ?>
 
                 </div>
                 <!-- /resources__items -->
+                
                 </div>
                 <?php }
                 rewind_posts();
                 $post = $tmp;
                 ?>
 
-          
+
 
         </div>
         <!-- /site__content__inner -->

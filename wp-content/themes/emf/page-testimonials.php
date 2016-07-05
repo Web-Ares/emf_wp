@@ -6,7 +6,7 @@ get_header(); ?>
 
 <!-- site__content -->
 <div class="site__content">
-    <h1 class="site__title">Testimonials</h1>
+    <h1 class="site__title"><?php the_title(); ?></h1>
 
     <!-- site__content__wrap -->
     <div class="site__content__wrap gallery">
@@ -16,7 +16,7 @@ get_header(); ?>
             <div class="swiper-wrapper">
 
                 <?php
-
+                $images = array();
                 // check if the repeater field has rows of data
                 if( have_rows('testimonials_block') ):
 
@@ -95,8 +95,14 @@ get_header(); ?>
             <div class="swiper-container">
 
                 <div class="swiper-wrapper">
-                    <?php foreach($images as $img){ ?>
-                        <div class="swiper-slide swiper-slide-active is-selected" style="background-image:url(<?php echo $img; ?>)">
+                    <?php foreach($images as $key => $img){
+                        if($key==0){
+                            $active_slide = 'swiper-slide-active is-selected';
+                        } else{
+                            $active_slide = '';
+                        }
+                       ?>
+                        <div class="swiper-slide <?php echo $active_slide; ?>" style="background-image:url(<?php echo $img; ?>)">
 
                             <!-- gallery__thumbs-info -->
                             <div class="gallery__thumbs-info">

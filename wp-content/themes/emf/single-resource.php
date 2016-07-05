@@ -151,8 +151,8 @@
             <?php $comments = get_approved_comments(get_the_ID() );
             if($comments):
             ?>
-            <h2 class="site__title site__title_2">Latest comments </h2>
-            <div class="content">
+
+         
 
 
                 <?php
@@ -179,7 +179,7 @@
             </div>
                 <?php endif; ?>
 
-            </div>
+
         <!-- /site__content__inner -->
 
 
