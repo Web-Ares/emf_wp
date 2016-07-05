@@ -73,7 +73,7 @@ get_header(); ?>
 
                                             </div>
 
-                                            <a href="#" class="btn btn_3 apply" data-value="work<?php echo $work; ?>" data-text1="apply" data-text2="applied">
+                                            <a href="#" class="btn btn_3 apply" data-value="<?php echo $title; ?>" data-text1="apply" data-text2="applied">
                                                 <span>apply</span>
                                             </a>
 
