@@ -549,11 +549,13 @@ if ( $resource->have_posts() ) { ?>
                 </a>
                 <!-- /resources__item-pic -->
 
-                <a href="'.$link_inner.'" class="site__title site__title_5">'.$title.'</a>
+                <h2 class="site__title site__title_5"><a href="'.$link_inner.'">'.$title.'</a></h2>';
 
-
-                <a href="#" class="resources__links-item resources__links-item_comments">'.
-                get_comments_number_text( "No Comments Yet","1 Comment","Comments <span>%</span>" ).'</a><p>'.$myExcerpt.' [...]</p>';
+               if(get_comments_number()) {
+                   $output .= '<a href="'.$link_inner.'?view=true" class="resources__links-item resources__links-item_comments">' .
+                       get_comments_number_text("", "1 Comment", "Comments <span>%</span>") . '</a>';
+               }
+                $output .= '<p>' . $myExcerpt . ' [...]</p>';
 
 
             
@@ -561,7 +563,7 @@ if ( $resource->have_posts() ) { ?>
                 if($terms){
 
                     $output.='<span class="resources__links-item resources__links-item_tags">
-                                <a data-id="all-tags" href="#">All tags, </a>';
+                                <a data-id="all-tags" href="">All tags, </a>';
                    
                     foreach ($terms as $key=>$term){
                         $term_cur_slug=$term->slug;
@@ -574,7 +576,7 @@ if ( $resource->have_posts() ) { ?>
                         if($key+1==count($terms)){
                             $term_name  = $term->name;
                         }
-                        $output.='<a data-id="'.$term_cur_slug.'" href="#?term='.$term_cur_slug.'" class="'.$active.'">'.$term_name.'</a>';
+                        $output.='<a data-id="'.$term_cur_slug.'" href="" class="'.$active.'">'.$term_name.'</a>';
                        
                     }
                     $output.= '</span>';

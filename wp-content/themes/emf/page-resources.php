@@ -94,12 +94,15 @@ get_header(); ?>
                             </a>
                             <!-- /resources__item-pic -->
 
-                            <a href="<?php echo $link_inner; ?>" class="site__title site__title_5"><?php echo $title; ?></a>
+                            <h2 class="site__title site__title_5">
+                                <a href="<?php echo $link_inner; ?>"><?php echo $title; ?></a>
+                            </h2>
 
-
-                            <a href="#" class="resources__links-item resources__links-item_comments">
-                                <?php comments_number( 'No Comments Yet','1 Comment','Comments <span>%</span>' ); ?>
+                            <?php if(get_comments_number()):?>
+                            <a href="<?php echo $link_inner; ?>?view=true'" class="resources__links-item resources__links-item_comments">
+                                <?php comments_number( '','1 Comment','Comments <span>%</span>' ); ?>
                             </a>
+                        <?php endif;?>
 
                         <?php
                         $myExcerpt = get_the_excerpt();

@@ -4,9 +4,13 @@
 <!-- site__content -->
 <div class="site__content">
     <h1 class="site__title">RESOURCES</h1>
-
+        <?php  if($_GET['view']==true){
+            $comment_cur_flag = 'comments_scroll';
+        }  else {
+            $comment_cur_flag='';
+        } ?>
     <!-- site__content__wrap -->
-    <div class="site__content__wrap">
+    <div class="site__content__wrap <?php echo $comment_cur_flag; ?>">
 
         <!-- site__content__aside -->
         <aside class="site__content__aside">
@@ -22,7 +26,8 @@
                     $date_m = get_the_date('M');
                     $date_y = get_the_date('Y');
                     $cur_permalink = get_the_permalink(94);
-               ?>
+                   ?>
+
                     <span class="resources__date-day"><?php echo $date_d; ?></span>
                     <span class="resources__date-month"><?php echo $date_m; ?></span>
                     <span><?php echo $date_y; ?></span>
@@ -119,7 +124,7 @@
                     'email'  => '<!-- site__field -->
                                 <div class="site__field site__field_width1"><label for="email">' . __( 'EMAIL*' ) . '</label> '.
 
-                               '<input id="email" class="site__input"  name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
+                               '<input id="email" class="site__input"  name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div>',
 
                     'industry'    => '' ) ),
 
