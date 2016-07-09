@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 
+ 
 <!-- site__content -->
 <div class="site__content">
     <h1 class="site__title">RESOURCES</h1>
