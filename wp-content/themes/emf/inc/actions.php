@@ -57,7 +57,9 @@ function add_js()
 
     wp_register_script('jquery',get_template_directory_uri().'/dist/js/vendors/jquery-2.2.1.min.js');
     wp_enqueue_script('jquery');
-    wp_register_script('script-nicescroll',get_template_directory_uri().'/dist/js/vendors/jquery.nicescroll.min.js');
+    wp_enqueue_style('swiper', get_template_directory_uri().'/dist/css/swiper.min.css');
+    wp_enqueue_style('perfect', get_template_directory_uri().'/dist/css/perfect-scrollbar.css');
+    wp_register_script('script-nicescroll',get_template_directory_uri().'/dist/js/vendors/perfect-scrollbar.min.js');
     wp_enqueue_script('script-nicescroll');
 
     if (is_page_template('page-home.php')){
@@ -596,7 +598,7 @@ exit;
 
 
 
-}
+    }
 }
 
 
