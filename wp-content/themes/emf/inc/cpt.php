@@ -20,7 +20,7 @@ function custom_post_type()
 
     $args = array(
         'labels' => $labels,
-        'supports' => array('title','thumbnail','editor','excerpt','comments'),
+        'supports' => array('title','thumbnail','editor','excerpt'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,

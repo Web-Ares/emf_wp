@@ -8,11 +8,11 @@ define( 'DIRECT', TEMPLATEURI.'/dist/' );
 show_admin_bar( false );
 
 
-add_filter('wp_die_handler', 'get_my_custom_die_handler');
-
-function get_my_custom_die_handler() {
-    return 'my_custom_die_handler';
-}
+//add_filter('wp_die_handler', 'get_my_custom_die_handler');
+//
+//function get_my_custom_die_handler() {
+//    return 'my_custom_die_handler';
+//}
 
 function my_custom_die_handler($message, $title='', $args=array()) {
     $errorTemplate = get_theme_root().'/'.get_template().'/commenterror.php';

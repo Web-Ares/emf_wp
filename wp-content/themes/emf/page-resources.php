@@ -98,12 +98,7 @@ get_header(); ?>
                                 <a href="<?php echo $link_inner; ?>"><?php echo $title; ?></a>
                             </h2>
 
-                            <?php if(get_comments_number()):?>
-                            <a href="<?php echo $link_inner; ?>?view=true'" class="resources__links-item resources__links-item_comments">
-                                <?php comments_number( '','1 Comment','Comments <span>%</span>' ); ?>
-                            </a>
-                        <?php endif;?>
-
+                            
                         <?php
                         $myExcerpt = get_the_excerpt();
                         $tags = array("<p>", "</p>");
