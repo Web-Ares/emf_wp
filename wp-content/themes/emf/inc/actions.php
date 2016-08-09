@@ -163,6 +163,8 @@ function add_js()
         wp_enqueue_style('careers', get_template_directory_uri().'/dist/css/careers-page.css');
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
         wp_enqueue_script('main');
+        wp_register_script('tabs',get_template_directory_uri().'/dist/js/tabs.min.js');
+        wp_enqueue_script('tabs');
 
     }
 
