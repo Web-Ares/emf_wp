@@ -188,9 +188,9 @@
             <!-- /social-networks -->
 
             <!-- site__header__angies -->
-            <a href="<?php the_field('angies_list_link','options')?>" class="site__header__angies">
-                <img src="<?php echo DIRECT;?>pic/angies-list.png" width="127" height="16" alt="">
-            </a>
+<!--            <a href="--><?php //the_field('angies_list_link','options')?><!--" class="site__header__angies">-->
+<!--                <img src="--><?php //echo DIRECT;?><!--pic/angies-list.png" width="127" height="16" alt="">-->
+<!--            </a>-->
             <!-- /site__header__angies -->
 
         </div>

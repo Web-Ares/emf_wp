@@ -56,6 +56,12 @@ get_header(); ?>
 
                 <h2 class="site__title site__title_2">Contact Form</h2>
 
+                <!-- contact__text -->
+                <div class="contact__text">
+                    <?php the_field('text_after_contact_form'); ?>
+                </div>
+                <!-- /contact__text -->
+
                 <!-- site__form -->
                 <div class="site__form">
                     <?php echo do_shortcode('[contact-form-7 id="80" title="Form on Contact Page"]'); ?>
@@ -64,12 +70,6 @@ get_header(); ?>
 
             </div>
             <!-- /contact__form -->
-
-            <!-- contact__text -->
-            <div class="contact__text">
-                <?php the_field('text_after_contact_form'); ?>
-            </div>
-            <!-- /contact__text -->
 
         </div>
         <!-- /site__content__inner -->
