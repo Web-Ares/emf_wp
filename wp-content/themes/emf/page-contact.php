@@ -15,7 +15,7 @@ get_header(); ?>
         <aside class="site__content__aside">
 
             <!-- contact__info -->
-            <div class="contact__info">
+            <div class="contact__info nice-scroll">
                 <h2 class="site__title site__title_3">Contact Info</h2>
                 <?php $address = get_field('address_field'); ?>
                 <!-- contact__info -->
