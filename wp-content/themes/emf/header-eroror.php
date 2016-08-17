@@ -111,13 +111,13 @@
 
         <?php if(is_front_page()){ ?>
             <!-- logo -->
-            <h1 class="logo">
+            <h1 class="logo logo_amin">
                 <img src="<?php echo DIRECT; ?>img/logo.png" width="150" height="150" alt="EMF">
             </h1>
             <!-- /logo -->
         <?php } else {?>
             <!-- logo -->
-            <a href="<?php echo home_url(); ?>" class="logo">
+            <a href="<?php echo home_url(); ?>" class="logo logo_amin">
                 <img src="<?php echo DIRECT; ?>img/logo.png" width="150" height="150" alt="EMF">
             </a>
             <!-- /logo -->

@@ -125,7 +125,7 @@
 
         <?php if(is_front_page()){ ?>
             <!-- logo -->
-            <h1 class="logo">
+            <h1 class="logo logo_amin">
                 <div>
                     <div class="ellipse ellipse_1"></div>
                     <div class="ellipse ellipse_2"></div>
@@ -137,7 +137,7 @@
         <?php } else {?>
         
             <!-- logo -->
-            <a href="<?php echo home_url(); ?>" class="logo">
+            <a href="<?php echo home_url(); ?>" class="logo logo_amin">
                 <div>
                     <div class="ellipse ellipse_1"></div>
                     <div class="ellipse ellipse_2"></div>
