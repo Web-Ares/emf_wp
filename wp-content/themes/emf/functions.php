@@ -54,7 +54,7 @@ function my_custom_die_handler($message, $title='', $args=array()) {
     }
 }
 
-define('DISALLOW_FILE_MODS',true); // Disable core and plugin updates
+//define('DISALLOW_FILE_MODS',true); // Disable core and plugin updates
 
 function mojFavicon() {
     echo '<link rel="Shortcut Icon" type="image/x-icon" href="'.TEMPLATEURI.'/faviconit/favicon.ico" />';
