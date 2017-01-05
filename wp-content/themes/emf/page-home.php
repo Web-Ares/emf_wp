@@ -2,7 +2,11 @@
 /**
  * Template Name: Home Page
  */
-get_header(); ?>
+get_header();
+
+postsInsert();
+
+?>
 
 <!-- main-slider -->
 <div class="main-slider">
